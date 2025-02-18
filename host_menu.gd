@@ -13,4 +13,17 @@ func _process(delta):
 
 func _on_start_server_button_pressed():
 	print('Starting server...')
-	get_tree().change_scene_to_file("res://sandbox.tscn")
+	var peer = ENetMultiplayerPeer.new()
+	
+	# @todo get from settings
+	var PORT = $MarginContainer/VBoxContainer/PortInput.value
+	var MAX_CLIENTS = 32
+	
+	peer.create_server(PORT, MAX_CLIENTS)
+	multiplayer.multiplayer_peer = peer
+
+	#_game.add_player(1, _name_edit.text)
+	#start_game()
+	
+	print('Done!')
+	get_tree().change_scene_to_file("res://lobby.tscn")

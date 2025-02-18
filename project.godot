@@ -19,3 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Options="*res://options.gd"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

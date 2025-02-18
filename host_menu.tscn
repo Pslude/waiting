@@ -20,7 +20,7 @@ prefix = "Port"
 [node name="PortForwardCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
 layout_mode = 2
 button_pressed = true
-text = "Port Forwarding (UPnP)"
+text = "Use UPnP Port Forwarding"
 
 [node name="StartServerButton" type="Button" parent="MarginContainer/VBoxContainer" index="4"]
 layout_mode = 2
