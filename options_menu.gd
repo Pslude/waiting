@@ -13,7 +13,7 @@ func _ready():
 		$MarginContainer/VBoxContainer/FullscreenCheckBox.button_pressed = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_fullscreen_check_box_toggled(toggled_on):

@@ -6,23 +6,50 @@
 [node name="HostMenu" instance=ExtResource("1_ghgvc")]
 script = ExtResource("2_awlu2")
 
-[node name="ServerNameInput" type="LineEdit" parent="MarginContainer/VBoxContainer" index="1"]
+[node name="MarginContainer" parent="." index="0"]
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 300
+
+[node name="Space" type="Container" parent="MarginContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ServerNameInput" type="LineEdit" parent="MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
 placeholder_text = "Server Name"
 
-[node name="PortInput" type="SpinBox" parent="MarginContainer/VBoxContainer" index="2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="3"]
 layout_mode = 2
+
+[node name="PortInput" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 min_value = 1024.0
 max_value = 65535.0
 value = 42069.0
-prefix = "Port"
+prefix = "Listen Port:"
 
-[node name="PortForwardCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" index="3"]
+[node name="UPnPCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
 button_pressed = true
 text = "Use UPnP Port Forwarding"
 
-[node name="StartServerButton" type="Button" parent="MarginContainer/VBoxContainer" index="4"]
+[node name="MaxPlayersInput" type="SpinBox" parent="MarginContainer/VBoxContainer" index="4"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+min_value = 1.0
+max_value = 4095.0
+value = 4.0
+prefix = "Max Players:"
+
+[node name="Space2" type="Container" parent="MarginContainer/VBoxContainer" index="5"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="StartServerButton" type="Button" parent="MarginContainer/VBoxContainer" index="6"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Server"

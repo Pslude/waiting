@@ -7,10 +7,10 @@ func _ready():
 	$VBoxContainer/FindButton.grab_focus()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _input(event):
+func _input(_event):
 	# quit when pressing Esc
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
