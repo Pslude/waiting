@@ -26,12 +26,12 @@ theme_override_constants/margin_bottom = 15
 custom_minimum_size = Vector2(0, 420)
 layout_mode = 2
 bbcode_enabled = true
-text = "[16:19] Dick: nice  (white on black)
-[16:20] Dyke: super nice!
-[16:20] Dick: lol! happy 420
-[16:20] Dyke: u2. lets do this!
+text = "[16:19] Dick: nice
+[16:20] Dyke: super nice
+[16:20] Dick: lol
+[16:20] Dyke: lets do this!
 [color=#d2761f][16:21] Dyke launched the game.[/color]
-
+[color=#cc0000][16:41] Game over.  Dick wins![/color]
 [16:42] Dick: gg
 [16:42] Dyke: gg!
 [16:42] Dick: gg
