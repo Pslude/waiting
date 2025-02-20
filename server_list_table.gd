@@ -53,4 +53,4 @@ func Render():
 
 func _on_actions_clicked(row_data):
 	print("ActionsClik: ", row_data)
-	get_tree().change_scene_to_file("res://sandbox.tscn")
+	get_tree().change_scene_to_file("res://lobby.tscn")

@@ -1,20 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://e10td24v8vfw"]
+[gd_scene load_steps=3 format=3 uid="uid://e10td24v8vfw"]
 
 [ext_resource type="PackedScene" uid="uid://bk5bftmijlegf" path="res://sub_menu.tscn" id="1_r5nhl"]
 [ext_resource type="Script" path="res://lobby.gd" id="2_whhsb"]
-[ext_resource type="PackedScene" uid="uid://b1dcfbgnqgpus" path="res://server_list_table.tscn" id="3_rnox1"]
 
 [node name="Lobby" instance=ExtResource("1_r5nhl")]
 script = ExtResource("2_whhsb")
 
 [node name="StatusRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
-text = "Init..."
+text = "Connecting..."
 fit_content = true
 
-[node name="ServerListPanel" type="Panel" parent="MarginContainer/VBoxContainer" index="2"]
+[node name="MarginTop" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="ServerListTable" parent="MarginContainer/VBoxContainer/ServerListPanel" index="0" instance=ExtResource("3_rnox1")]
-layout_mode = 1
+[node name="ChatMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ChatHistory" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ChatMarginContainer" index="0"]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+bbcode_enabled = true
+text = "[16:19] Dick: nice  (white on black)
+[16:20] Dyke: super nice!
+[16:20] Dick: lol! happy 420
+[16:20] Dyke: u2. lets do this!
+[color=#d2761f][16:21] Dyke launched the game.[/color]
+
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!
+[16:42] Dick: gg
+[16:42] Dyke: gg!"
+
+[node name="SendChatContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="ChatInput" type="LineEdit" parent="MarginContainer/VBoxContainer/SendChatContainer" index="0"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/SendChatContainer" index="1"]
+layout_mode = 2
+text = "Send"

@@ -11,47 +11,108 @@ theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 400
 theme_override_constants/margin_right = 300
 
-[node name="Space" type="Container" parent="MarginContainer/VBoxContainer" index="1"]
+[node name="TopMargin" type="Control" parent="MarginContainer/VBoxContainer" index="1"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ServerNameInput" type="LineEdit" parent="MarginContainer/VBoxContainer" index="2"]
-layout_mode = 2
-placeholder_text = "Server Name"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="3"]
+[node name="ServerNameContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="2"]
 layout_mode = 2
 
-[node name="PortInput" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0"]
-custom_minimum_size = Vector2(300, 0)
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ServerNameContainer" index="0"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Server Name:"
+
+[node name="ServerNameInput" type="LineEdit" parent="MarginContainer/VBoxContainer/ServerNameContainer" index="1"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="RandomizeButton" type="Button" parent="MarginContainer/VBoxContainer/ServerNameContainer" index="2"]
+layout_mode = 2
+text = "Randomize"
+
+[node name="PortContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PortContainer" index="0"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Listen Port:"
+
+[node name="PortInput" type="SpinBox" parent="MarginContainer/VBoxContainer/PortContainer" index="1"]
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 min_value = 1024.0
 max_value = 65535.0
 value = 42069.0
-prefix = "Listen Port:"
+rounded = true
 
-[node name="UPnPCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+[node name="UPnPCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/PortContainer" index="2"]
 layout_mode = 2
 button_pressed = true
 text = "Use UPnP Port Forwarding"
 
-[node name="MaxPlayersInput" type="SpinBox" parent="MarginContainer/VBoxContainer" index="4"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VisibilityContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VisibilityContainer" index="0"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Visibility:"
+
+[node name="VisibilityList" type="ItemList" parent="MarginContainer/VBoxContainer/VisibilityContainer" index="1"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+auto_height = true
+item_count = 3
+item_0/text = "Private (Invite Only)"
+item_1/text = "Private (Friends)"
+item_2/text = "Public"
+
+[node name="GameContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GameContainer" index="0"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Game Mode:"
+
+[node name="GameList" type="ItemList" parent="MarginContainer/VBoxContainer/GameContainer" index="1"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+auto_height = true
+item_count = 3
+item_0/text = "Free For Some"
+item_1/text = "Flag The Captives"
+item_2/text = "Who Delt It?"
+
+[node name="MaxPlayersContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="6"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaxPlayersContainer" index="0"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Max Players:"
+
+[node name="MaxPlayersInput" type="SpinBox" parent="MarginContainer/VBoxContainer/MaxPlayersContainer" index="1"]
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 min_value = 1.0
 max_value = 4095.0
 value = 4.0
-prefix = "Max Players:"
+rounded = true
 
-[node name="Space2" type="Container" parent="MarginContainer/VBoxContainer" index="5"]
+[node name="BottomMargin" type="Control" parent="MarginContainer/VBoxContainer" index="7"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="StartServerButton" type="Button" parent="MarginContainer/VBoxContainer" index="6"]
+[node name="StartServerButton" type="Button" parent="MarginContainer/VBoxContainer" index="8"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Server"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ServerNameContainer/RandomizeButton" to="." method="_on_randomize_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartServerButton" to="." method="_on_start_server_button_pressed"]

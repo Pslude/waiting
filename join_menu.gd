@@ -9,7 +9,6 @@ func _ready() -> void:
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_completed)
 
-	#var http_error = http_request.request("http://127.0.0.1:8000/host/api/servers/?format=json&game_mode__game__name=Waiting&game_mode__name=Sandbox&release__name=0.0.1&status=a")
 	var http_error = http_request.request("https://tabarnak.app/host/api/servers/?format=json&game_mode__game__name=Waiting&game_mode__name=Sandbox&release__name=0.0.1&status=a")
 	if http_error != OK:
 		push_error("An error occurred in the HTTP request.")
